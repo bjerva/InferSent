@@ -19,7 +19,7 @@ import torch.nn as nn
 from data import get_nli, get_batch, build_vocab
 from mutils import get_optimizer
 from models import NLINet
-
+from numpy import round
 
 parser = argparse.ArgumentParser(description='NLI training')
 # paths

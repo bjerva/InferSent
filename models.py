@@ -806,7 +806,7 @@ class NLINet(nn.Module):
         if self.nonlinear_fc:
             self.classifier = nn.Sequential(
                 nn.Dropout(p=self.dpout_fc),
-                nn.Linear(self.inputdim, self.fc_dim),
+                nn.Linear(int(self.inputdim), self.fc_dim),
                 nn.Tanh(),
                 nn.Dropout(p=self.dpout_fc),
                 nn.Linear(self.fc_dim, self.fc_dim),
@@ -816,7 +816,7 @@ class NLINet(nn.Module):
                 )
         else:
             self.classifier = nn.Sequential(
-                nn.Linear(self.inputdim, self.fc_dim),
+                nn.Linear(int(self.inputdim), self.fc_dim),
                 nn.Linear(self.fc_dim, self.fc_dim),
                 nn.Linear(self.fc_dim, self.n_classes)
                 )
